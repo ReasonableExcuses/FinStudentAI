@@ -43,27 +43,27 @@ export const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#090d16] flex items-center justify-center p-6">
-      <div className="max-w-md w-full glass-panel p-8 rounded-2xl border border-slate-800 shadow-2xl">
+    <div className="min-h-screen bg-[#0c0e12] flex items-center justify-center p-4 sm:p-6 selection:bg-[#10b981] selection:text-[#042f1a]">
+      <div className="max-w-md w-full fin-card p-6 sm:p-8 border border-white/[0.08] shadow-2xl">
         <div className="text-center mb-6">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-600 to-teal-400 flex items-center justify-center mx-auto mb-3 shadow-lg shadow-teal-500/25">
-            <GraduationCap className="w-6 h-6 text-slate-950 font-bold" />
+          <div className="w-11 h-11 rounded-2xl bg-[#10b981] flex items-center justify-center mx-auto mb-3 text-[#042f1a] font-bold shadow-sm">
+            <GraduationCap className="w-6 h-6" />
           </div>
-          <h2 className="text-xl font-bold font-display text-white">Welcome back to FinStudent AI</h2>
-          <p className="text-xs text-slate-400 mt-1">Sign in to track, predict, and optimize your student budget</p>
+          <h2 className="text-xl font-bold font-display text-white tracking-tight">Welcome back</h2>
+          <p className="text-xs text-slate-400 mt-1">Sign in to your FinStudent AI dashboard</p>
         </div>
 
         {/* Demo Fast-Track Card */}
-        <div className="mb-6 p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-center">
-          <p className="text-xs text-indigo-300 font-semibold mb-2">University Review Fast-Track</p>
+        <div className="mb-6 p-4 rounded-xl bg-white/[0.03] border border-white/[0.08] text-center">
+          <p className="text-xs text-slate-300 font-semibold mb-2">University Review Fast-Track</p>
           <button
             type="button"
             onClick={handleDemo}
             disabled={isDemoLoading}
-            className="w-full py-2.5 px-4 text-xs font-bold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white shadow-md transition flex items-center justify-center space-x-2 disabled:opacity-50"
+            className="w-full py-2.5 px-4 text-xs font-bold rounded-full bg-white/[0.08] hover:bg-white/[0.14] text-white transition flex items-center justify-center space-x-2 disabled:opacity-50 active:scale-95"
           >
-            <Database className="w-3.5 h-3.5" />
-            <span>{isDemoLoading ? 'Setting up Demo...' : 'Load 1-Click Demo Data (Alex)'}</span>
+            <Database className="w-3.5 h-3.5 text-[#38bdf8]" />
+            <span>{isDemoLoading ? 'Setting up Demo...' : '1-Click Demo Login (Alex)'}</span>
           </button>
         </div>
 
@@ -80,10 +80,10 @@ export const LoginPage: React.FC = () => {
             <input
               type="email"
               required
-              placeholder="alex@university.edu"
+              placeholder="alex@finstudent.ai"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0c0e12] border border-white/[0.08] text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#10b981] transition"
             />
           </div>
 
@@ -95,14 +95,14 @@ export const LoginPage: React.FC = () => {
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0c0e12] border border-white/[0.08] text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#10b981] transition"
             />
           </div>
 
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-2.5 text-xs font-bold rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 shadow-lg shadow-brand-500/20 transition disabled:opacity-50 flex items-center justify-center space-x-2 mt-2"
+            className="w-full py-2.5 text-xs font-bold rounded-full bg-[#10b981] hover:bg-[#34d399] text-[#042f1a] transition active:scale-95 disabled:opacity-50 flex items-center justify-center space-x-2 mt-2 shadow-sm"
           >
             <span>{isLoading ? 'Signing In...' : 'Sign In'}</span>
             <ArrowRight className="w-4 h-4" />
@@ -111,7 +111,7 @@ export const LoginPage: React.FC = () => {
 
         <p className="text-center text-xs text-slate-400 mt-6">
           Don't have an account?{' '}
-          <Link to="/register" className="text-brand-400 hover:underline font-medium">
+          <Link to="/register" className="text-[#10b981] hover:underline font-medium">
             Register here
           </Link>
         </p>

@@ -71,31 +71,31 @@ export const BudgetsPage: React.FC = () => {
   const overallPct = totalBudgeted > 0 ? (totalSpent / totalBudgeted) * 100 : 0;
 
   return (
-    <div className="space-y-6 animate-fade-in pb-12">
+    <div className="space-y-5 sm:space-y-6 animate-fade-in pb-12">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold font-display text-white">Category Budgets & Projections</h1>
+          <h1 className="text-xl sm:text-2xl font-bold font-display text-white tracking-tight">Category Budgets</h1>
           <p className="text-xs text-slate-400 mt-0.5">
-            Monitor limits, prevent overspending, and review velocity-based budget breach warnings.
+            Monitor limits, prevent overruns, and review velocity-based budget breach warnings.
           </p>
         </div>
 
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-2 sm:space-x-3 self-start sm:self-auto">
           {/* Month Selector */}
           <select
             value={selectedMonth}
             onChange={(e) => setSelectedMonth(e.target.value)}
-            className="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 focus:outline-none focus:border-brand-500 transition font-medium"
+            className="px-3 py-1.5 rounded-full bg-[#151821] border border-white/[0.08] text-xs text-slate-300 focus:outline-none focus:border-[#10b981] transition font-medium"
           >
-            <option value="2026-09">September 2026</option>
-            <option value="2026-08">August 2026</option>
-            <option value="2026-07">July 2026</option>
+            <option value="2026-09">Sep 2026</option>
+            <option value="2026-08">Aug 2026</option>
+            <option value="2026-07">Jul 2026</option>
           </select>
 
           <button
             onClick={() => setIsModalOpen(true)}
-            className="flex items-center space-x-1.5 px-4 py-2 text-xs font-bold rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 shadow-md shadow-brand-500/20 transition"
+            className="flex items-center space-x-1.5 px-3.5 py-1.5 text-xs font-bold rounded-full bg-[#10b981] hover:bg-[#34d399] text-[#042f1a] transition active:scale-95 shadow-sm"
           >
             <Plus className="w-4 h-4 font-bold" />
             <span>Set Budget</span>
@@ -104,17 +104,17 @@ export const BudgetsPage: React.FC = () => {
       </div>
 
       {/* Aggregate Overview Card */}
-      <div className="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="fin-card p-4 sm:p-6 border border-white/[0.08] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6">
         <div className="space-y-1 w-full md:w-auto">
-          <span className="text-[10px] font-bold uppercase tracking-wider text-brand-400">Total Monthly Allocation</span>
-          <h3 className="text-2xl font-bold font-mono text-white">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-[#10b981]">Total Monthly Allocation</span>
+          <h3 className="text-xl sm:text-2xl font-bold font-mono-numbers text-white">
             ₹{totalSpent.toLocaleString()} <span className="text-sm font-normal text-slate-400">/ ₹{totalBudgeted.toLocaleString()}</span>
           </h3>
           <p className="text-xs text-slate-400">
             {totalBudgeted - totalSpent >= 0 ? (
-              <span className="text-emerald-400 font-semibold">₹{(totalBudgeted - totalSpent).toLocaleString()}</span>
+              <span className="text-[#34d399] font-semibold font-mono-numbers">₹{(totalBudgeted - totalSpent).toLocaleString()}</span>
             ) : (
-              <span className="text-rose-400 font-semibold">Over by ₹{(totalSpent - totalBudgeted).toLocaleString()}</span>
+              <span className="text-rose-400 font-semibold font-mono-numbers">Over by ₹{(totalSpent - totalBudgeted).toLocaleString()}</span>
             )}{' '}
             remaining across your {budgets.length} monitored categories
           </p>
@@ -137,12 +137,12 @@ export const BudgetsPage: React.FC = () => {
       </div>
 
       {/* Budget Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {budgets.map((b) => (
           <div
             key={b.category}
-            className={`glass-panel p-5 rounded-2xl border transition duration-200 flex flex-col justify-between ${
-              b.is_projected_over ? 'border-amber-500/40 bg-slate-900/80 shadow-lg shadow-amber-500/5' : 'border-slate-800'
+            className={`fin-card p-4 sm:p-5 border transition duration-200 flex flex-col justify-between ${
+              b.is_projected_over ? 'border-amber-500/40 bg-amber-500/[0.02]' : 'border-white/[0.08]'
             }`}
           >
             <div>
@@ -154,7 +154,7 @@ export const BudgetsPage: React.FC = () => {
                     setBudgetAmount(b.budget_amount.toString());
                     setIsModalOpen(true);
                   }}
-                  className="p-1 text-slate-500 hover:text-white rounded hover:bg-slate-800 transition"
+                  className="p-1 text-slate-400 hover:text-white rounded hover:bg-white/[0.06] transition"
                   title="Edit Budget"
                 >
                   <Edit3 className="w-3.5 h-3.5" />
@@ -162,14 +162,14 @@ export const BudgetsPage: React.FC = () => {
               </div>
 
               {/* Numbers */}
-              <div className="flex items-baseline justify-between mb-2">
+              <div className="flex items-baseline justify-between mb-2 font-mono-numbers">
                 <div>
                   <span className="text-[10px] text-slate-400">Spent: </span>
-                  <span className="font-mono text-base font-bold text-white">₹{b.spent_amount.toLocaleString()}</span>
+                  <span className="text-base font-bold text-white">₹{b.spent_amount.toLocaleString()}</span>
                 </div>
                 <div className="text-right">
                   <span className="text-[10px] text-slate-400">Budget: </span>
-                  <span className="font-mono text-xs text-slate-300">₹{b.budget_amount.toLocaleString()}</span>
+                  <span className="text-xs text-slate-300">₹{b.budget_amount.toLocaleString()}</span>
                 </div>
               </div>
 
@@ -178,7 +178,7 @@ export const BudgetsPage: React.FC = () => {
 
               {/* Velocity Projection Alert */}
               {b.is_projected_over && b.projection_alert && (
-                <div className="mt-3.5 p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[11px] leading-relaxed flex items-start space-x-2">
+                <div className="mt-3 p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-300 text-[11px] leading-relaxed flex items-start space-x-2">
                   <TrendingUp className="w-4 h-4 shrink-0 text-amber-400 mt-0.5" />
                   <div>
                     <span className="font-bold">Projected Breach: </span>
@@ -188,9 +188,9 @@ export const BudgetsPage: React.FC = () => {
               )}
             </div>
 
-            <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+            <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-slate-400 font-mono-numbers">
               <span>Remaining:</span>
-              <span className={`font-mono font-semibold ${b.remaining_amount === 0 ? 'text-rose-400' : 'text-slate-200'}`}>
+              <span className={`font-semibold ${b.remaining_amount === 0 ? 'text-rose-400' : 'text-slate-200'}`}>
                 ₹{b.remaining_amount.toLocaleString()}
               </span>
             </div>
@@ -200,11 +200,11 @@ export const BudgetsPage: React.FC = () => {
 
       {/* Set Budget Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-fade-in">
-          <div className="bg-[#0f172a] border border-slate-700/80 rounded-2xl max-w-sm w-full p-6 shadow-2xl relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
+          <div className="bg-[#151821] border border-white/[0.1] rounded-2xl max-w-sm w-full p-6 shadow-2xl relative">
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition"
+              className="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/[0.06] transition"
             >
               <X className="w-5 h-5" />
             </button>
@@ -218,7 +218,7 @@ export const BudgetsPage: React.FC = () => {
                 <select
                   value={targetCategory}
                   onChange={(e) => setTargetCategory(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white focus:outline-none focus:border-brand-500 transition"
+                  className="w-full px-3 py-2 rounded-xl bg-[#0c0e12] border border-white/[0.08] text-xs text-white focus:outline-none focus:border-[#10b981] transition"
                 >
                   {CATEGORIES.map((c) => (
                     <option key={c} value={c}>
@@ -237,7 +237,7 @@ export const BudgetsPage: React.FC = () => {
                   placeholder="e.g. 5000"
                   value={budgetAmount}
                   onChange={(e) => setBudgetAmount(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition font-mono"
+                  className="w-full px-3 py-2 rounded-xl bg-[#0c0e12] border border-white/[0.08] text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#10b981] transition font-mono-numbers"
                 />
               </div>
 
@@ -245,14 +245,14 @@ export const BudgetsPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 text-xs font-medium text-slate-400 hover:text-white rounded-xl hover:bg-slate-800 transition"
+                  className="px-4 py-2 text-xs font-medium text-slate-400 hover:text-white rounded-full hover:bg-white/[0.06] transition"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-5 py-2 text-xs font-bold bg-brand-500 hover:bg-brand-400 text-slate-950 rounded-xl shadow-lg shadow-brand-500/20 transition disabled:opacity-50"
+                  className="px-5 py-2 text-xs font-bold bg-[#10b981] hover:bg-[#34d399] text-[#042f1a] rounded-full transition active:scale-95 disabled:opacity-50"
                 >
                   {isSubmitting ? 'Saving...' : 'Set Budget'}
                 </button>

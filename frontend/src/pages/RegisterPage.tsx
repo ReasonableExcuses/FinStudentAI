@@ -38,13 +38,13 @@ export const RegisterPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#090d16] flex items-center justify-center p-6">
-      <div className="max-w-md w-full glass-panel p-8 rounded-2xl border border-slate-800 shadow-2xl">
+    <div className="min-h-screen bg-[#0c0e12] flex items-center justify-center p-4 sm:p-6 selection:bg-[#10b981] selection:text-[#042f1a]">
+      <div className="max-w-md w-full fin-card p-6 sm:p-8 border border-white/[0.08] shadow-2xl">
         <div className="text-center mb-6">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-600 to-teal-400 flex items-center justify-center mx-auto mb-3 shadow-lg shadow-teal-500/25">
-            <GraduationCap className="w-6 h-6 text-slate-950 font-bold" />
+          <div className="w-11 h-11 rounded-2xl bg-[#10b981] flex items-center justify-center mx-auto mb-3 text-[#042f1a] font-bold shadow-sm">
+            <GraduationCap className="w-6 h-6" />
           </div>
-          <h2 className="text-xl font-bold font-display text-white">Create FinStudent AI Profile</h2>
+          <h2 className="text-xl font-bold font-display text-white tracking-tight">Create FinStudent Profile</h2>
           <p className="text-xs text-slate-400 mt-1">Start tracking, detecting anomalies, and projecting budgets</p>
         </div>
 
@@ -64,7 +64,7 @@ export const RegisterPage: React.FC = () => {
               placeholder="e.g. Alex"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0c0e12] border border-white/[0.08] text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#10b981] transition"
             />
           </div>
 
@@ -76,7 +76,7 @@ export const RegisterPage: React.FC = () => {
               placeholder="student@university.edu"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0c0e12] border border-white/[0.08] text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#10b981] transition"
             />
           </div>
 
@@ -88,7 +88,7 @@ export const RegisterPage: React.FC = () => {
               placeholder="Minimum 6 characters"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0c0e12] border border-white/[0.08] text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#10b981] transition"
             />
           </div>
 
@@ -99,15 +99,15 @@ export const RegisterPage: React.FC = () => {
                 type="text"
                 value={university}
                 onChange={(e) => setUniversity(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-brand-500 transition"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#0c0e12] border border-white/[0.08] text-sm text-white focus:outline-none focus:border-[#10b981] transition"
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate-300 mb-1">Living Status</label>
+              <label className="block text-xs font-medium text-slate-300 mb-1">Living Context</label>
               <select
                 value={studentType}
                 onChange={(e) => setStudentType(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-brand-500 transition"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#0c0e12] border border-white/[0.08] text-sm text-white focus:outline-none focus:border-[#10b981] transition"
               >
                 <option value="Hosteller">Hosteller</option>
                 <option value="Day Scholar">Day Scholar</option>
@@ -118,17 +118,17 @@ export const RegisterPage: React.FC = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-2.5 text-xs font-bold rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 shadow-lg shadow-brand-500/20 transition disabled:opacity-50 flex items-center justify-center space-x-2 mt-2"
+            className="w-full py-2.5 text-xs font-bold rounded-full bg-[#10b981] hover:bg-[#34d399] text-[#042f1a] transition active:scale-95 disabled:opacity-50 flex items-center justify-center space-x-2 mt-2 shadow-sm"
           >
-            <span>{isLoading ? 'Creating Account...' : 'Register'}</span>
+            <span>{isLoading ? 'Creating Account...' : 'Get Started'}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </form>
 
         <p className="text-center text-xs text-slate-400 mt-6">
-          Already registered?{' '}
-          <Link to="/login" className="text-brand-400 hover:underline font-medium">
-            Sign in
+          Already have an account?{' '}
+          <Link to="/login" className="text-[#10b981] hover:underline font-medium">
+            Sign In here
           </Link>
         </p>
       </div>

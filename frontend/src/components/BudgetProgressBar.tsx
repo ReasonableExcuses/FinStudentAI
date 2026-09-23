@@ -15,14 +15,14 @@ export const BudgetProgressBar: React.FC<BudgetProgressBarProps> = ({
 
   const statusConfig = {
     normal: {
-      barClass: 'bg-emerald-500',
+      barClass: 'bg-[#10b981]',
       badgeClass: 'status-badge-normal',
-      label: 'Normal (< 70%)',
+      label: 'On Track (< 70%)',
     },
     attention: {
       barClass: 'bg-amber-400',
       badgeClass: 'status-badge-attention',
-      label: 'Attention (70–90%)',
+      label: 'Moderate (70–90%)',
     },
     near_limit: {
       barClass: 'bg-orange-500',
@@ -40,7 +40,7 @@ export const BudgetProgressBar: React.FC<BudgetProgressBarProps> = ({
 
   return (
     <div className="w-full">
-      <div className="w-full bg-slate-800 rounded-full h-2.5 overflow-hidden">
+      <div className="w-full bg-white/[0.06] rounded-full h-2 overflow-hidden">
         <div
           className={`h-full rounded-full transition-all duration-500 ${current.barClass}`}
           style={{ width: `${clamped}%` }}
@@ -48,8 +48,8 @@ export const BudgetProgressBar: React.FC<BudgetProgressBarProps> = ({
       </div>
       {showLabel && (
         <div className="flex items-center justify-between text-xs mt-1.5">
-          <span className="text-slate-400">{percentage.toFixed(0)}% used</span>
-          <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium ${current.badgeClass}`}>
+          <span className="text-slate-400 font-mono-numbers text-[11px]">{percentage.toFixed(0)}% used</span>
+          <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${current.badgeClass}`}>
             {current.label}
           </span>
         </div>

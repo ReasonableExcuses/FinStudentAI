@@ -42,17 +42,17 @@ export const ProfilePage: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 animate-fade-in pb-12 max-w-3xl mx-auto">
+    <div className="space-y-5 sm:space-y-6 animate-fade-in pb-12 max-w-3xl mx-auto">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold font-display text-white">Student Financial Profile</h1>
+        <h1 className="text-xl sm:text-2xl font-bold font-display text-white tracking-tight">Student Profile</h1>
         <p className="text-xs text-slate-400 mt-0.5">
           Configure baseline allowances, institutional parameters, and living context.
         </p>
       </div>
 
       {successMsg && (
-        <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs flex items-center gap-2">
+        <div className="p-3.5 rounded-xl bg-[#10b981]/10 border border-[#10b981]/25 text-[#34d399] text-xs flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 shrink-0" />
           <span>{successMsg}</span>
         </div>
@@ -65,9 +65,9 @@ export const ProfilePage: React.FC = () => {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
-        <div className="flex items-center space-x-4 pb-5 border-b border-slate-800">
-          <div className="w-14 h-14 rounded-2xl bg-brand-500/20 text-brand-300 border border-brand-500/30 flex items-center justify-center font-bold text-xl font-display">
+      <form onSubmit={handleSubmit} className="fin-card p-4 sm:p-6 border border-white/[0.08] space-y-5">
+        <div className="flex items-center space-x-4 pb-5 border-b border-white/[0.08]">
+          <div className="w-12 h-12 rounded-2xl bg-[#10b981]/15 text-[#34d399] border border-[#10b981]/30 flex items-center justify-center font-bold text-lg font-display">
             {name[0] || 'A'}
           </div>
           <div>
@@ -84,7 +84,7 @@ export const ProfilePage: React.FC = () => {
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-brand-500 transition"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0c0e12] border border-white/[0.08] text-sm text-white focus:outline-none focus:border-[#10b981] transition"
             />
           </div>
 
@@ -95,31 +95,31 @@ export const ProfilePage: React.FC = () => {
               required
               value={university}
               onChange={(e) => setUniversity(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-brand-500 transition"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0c0e12] border border-white/[0.08] text-sm text-white focus:outline-none focus:border-[#10b981] transition"
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono-numbers">
           <div>
-            <label className="block text-xs font-medium text-slate-300 mb-1">Monthly Expected Income (₹)</label>
+            <label className="block text-xs font-medium text-slate-300 mb-1 font-sans">Monthly Expected Allowance (₹)</label>
             <input
               type="number"
               required
               value={monthlyIncome}
               onChange={(e) => setMonthlyIncome(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-brand-500 transition font-mono"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0c0e12] border border-white/[0.08] text-sm text-white focus:outline-none focus:border-[#10b981] transition"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-slate-300 mb-1">Target Monthly Budget (₹)</label>
+            <label className="block text-xs font-medium text-slate-300 mb-1 font-sans">Target Monthly Budget (₹)</label>
             <input
               type="number"
               required
               value={monthlyBudget}
               onChange={(e) => setMonthlyBudget(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-brand-500 transition font-mono"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0c0e12] border border-white/[0.08] text-sm text-white focus:outline-none focus:border-[#10b981] transition"
             />
           </div>
         </div>
@@ -130,7 +130,7 @@ export const ProfilePage: React.FC = () => {
             <select
               value={studentType}
               onChange={(e) => setStudentType(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-brand-500 transition"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0c0e12] border border-white/[0.08] text-sm text-white focus:outline-none focus:border-[#10b981] transition"
             >
               <option value="Hosteller">Hosteller (Mess & Campus living)</option>
               <option value="Day Scholar">Day Scholar (Transit & Commute)</option>
@@ -142,7 +142,7 @@ export const ProfilePage: React.FC = () => {
             <select
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-brand-500 transition"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0c0e12] border border-white/[0.08] text-sm text-white focus:outline-none focus:border-[#10b981] transition"
             >
               <option value="₹">₹ (INR - Indian Rupee)</option>
               <option value="$">$ (USD)</option>
@@ -152,11 +152,11 @@ export const ProfilePage: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-4 border-t border-slate-800 flex justify-end">
+        <div className="pt-4 border-t border-white/[0.06] flex justify-end">
           <button
             type="submit"
             disabled={isSaving}
-            className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 font-bold text-xs shadow-md shadow-brand-500/20 transition disabled:opacity-50"
+            className="flex items-center space-x-2 px-5 py-2.5 rounded-full bg-[#10b981] hover:bg-[#34d399] text-[#042f1a] font-bold text-xs shadow-sm transition active:scale-95 disabled:opacity-50"
           >
             <Save className="w-4 h-4 font-bold" />
             <span>{isSaving ? 'Saving...' : 'Save Profile'}</span>

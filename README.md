@@ -24,6 +24,7 @@
 </p>
 
 [Live Demo](https://finstudentai.web.app) •
+[Design System](DESIGN.md) •
 [Quickstart](#-quickstart-guide) •
 [Architecture](#-system-architecture) •
 [AI/ML Pipeline](#-intelligent-aiml-pipeline) •
