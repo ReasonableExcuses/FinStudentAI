@@ -65,54 +65,77 @@ export const LandingPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0c0e12] text-slate-100 flex flex-col selection:bg-[#10b981] selection:text-[#042f1a]">
+    <div className="min-h-screen bg-[#0c0e12] text-slate-100 flex flex-col selection:bg-[#10b981] selection:text-[#042f1a] overflow-x-hidden w-full">
       {/* Top Navigation */}
-      <header className="h-20 border-b border-white/[0.08] bg-[#0c0e12]/90 backdrop-blur-md sticky top-0 z-30 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto h-full flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="w-9 h-9 rounded-xl bg-[#10b981] flex items-center justify-center text-[#042f1a] font-bold shadow-sm">
-              <GraduationCap className="w-5 h-5" />
+      <header className="h-16 sm:h-20 border-b border-white/[0.08] bg-[#0c0e12]/90 backdrop-blur-md sticky top-0 z-30 px-3 sm:px-8 w-full">
+        <div className="max-w-7xl mx-auto h-full flex items-center justify-between gap-2">
+          {/* Logo */}
+          <div className="flex items-center space-x-2 sm:space-x-3 shrink-0">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#10b981] flex items-center justify-center text-[#042f1a] font-bold shadow-sm">
+              <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <div>
-              <span className="font-display font-bold text-base sm:text-lg text-white tracking-tight flex items-center gap-1.5">
-                FinStudent <span className="text-[#10b981] text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#10b981]/15 border border-[#10b981]/30">AI</span>
-              </span>
-            </div>
+            <span className="font-display font-bold text-sm sm:text-base md:text-lg text-white tracking-tight flex items-center gap-1 sm:gap-1.5">
+              FinStudent <span className="text-[#10b981] text-[9px] sm:text-[10px] font-mono px-1.5 sm:px-2 py-0.5 rounded-full bg-[#10b981]/15 border border-[#10b981]/30">AI</span>
+            </span>
           </div>
 
-          <div className="flex items-center space-x-2 sm:space-x-4">
+          {/* Desktop Navigation Actions */}
+          <div className="hidden sm:flex items-center space-x-3 md:space-x-4">
             <button
               onClick={handleDemoClick}
               disabled={isSeeding}
-              className="flex items-center space-x-1.5 px-3 sm:px-4 py-2 text-xs font-semibold rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border border-white/[0.1] transition active:scale-95 disabled:opacity-50"
+              className="flex items-center space-x-1.5 px-4 py-2 text-xs font-semibold rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border border-white/[0.1] transition active:scale-95 disabled:opacity-50"
             >
               <Database className="w-3.5 h-3.5 text-[#38bdf8]" />
-              <span className="hidden xs:inline">{isSeeding ? 'Seeding...' : 'Try Demo'}</span>
-              <span className="xs:hidden">Demo</span>
+              <span>{isSeeding ? 'Seeding...' : 'Try Demo'}</span>
             </button>
             <Link
               to="/login"
-              className="px-3 sm:px-4 py-2 text-xs font-medium text-slate-300 hover:text-white transition"
+              className="px-3.5 py-2 text-xs font-medium text-slate-300 hover:text-white transition"
             >
               Sign In
             </Link>
             <Link
               to="/register"
-              className="px-3.5 sm:px-5 py-2 text-xs font-bold rounded-full bg-[#10b981] hover:bg-[#34d399] text-[#042f1a] transition active:scale-95 shadow-sm"
+              className="px-5 py-2 text-xs font-bold rounded-full bg-[#10b981] hover:bg-[#34d399] text-[#042f1a] transition active:scale-95 shadow-sm"
             >
               Get Started
+            </Link>
+          </div>
+
+          {/* Mobile Navigation Actions */}
+          <div className="flex sm:hidden items-center space-x-1.5 shrink-0">
+            <button
+              onClick={handleDemoClick}
+              disabled={isSeeding}
+              className="flex items-center space-x-1 px-2.5 py-1.5 text-[11px] font-bold rounded-full bg-white/[0.08] text-[#34d399] border border-white/[0.12] active:scale-95 disabled:opacity-50"
+            >
+              <Database className="w-3 h-3 text-[#38bdf8]" />
+              <span>{isSeeding ? '...' : 'Demo'}</span>
+            </button>
+            <Link
+              to="/login"
+              className="px-2 py-1.5 text-[11px] font-medium text-slate-300 hover:text-white transition"
+            >
+              Sign In
+            </Link>
+            <Link
+              to="/register"
+              className="px-3 py-1.5 text-[11px] font-bold rounded-full bg-[#10b981] text-[#042f1a] active:scale-95 shadow-sm"
+            >
+              Start
             </Link>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8 pt-12 sm:pt-20 pb-16 w-full">
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 pt-10 sm:pt-20 pb-16 w-full">
         <div className="max-w-3xl mx-auto text-center">
           {/* Status Pill */}
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#10b981]/10 border border-[#10b981]/25 text-[#34d399] text-xs font-medium mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
-            <span>University Innovative Design Project • 100% Self-Contained Local AI</span>
+          <div className="inline-flex items-center space-x-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#10b981]/10 border border-[#10b981]/25 text-[#34d399] text-[10px] sm:text-xs font-medium mb-6 max-w-full">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#10b981] animate-pulse shrink-0" />
+            <span className="truncate">University IDP • 100% Self-Contained Local AI</span>
           </div>
 
           <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">

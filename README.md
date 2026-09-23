@@ -43,7 +43,7 @@ Traditional expense trackers stop at the **recording** phase: users manually ent
 **FinStudent AI** is architected as an active **personal finance intelligence engine** built specifically for university students managing monthly allowances, scholarships, freelance gigs, canteen food, mess fees, ride-sharing, and digital subscriptions.
 
 ### The 5-Stage Core Pipeline:
-$$\Large \textbf{Recording} \longrightarrow \textbf{Understanding} \longrightarrow \textbf{Detecting} \longrightarrow \textbf{Predicting} \longrightarrow \textbf{Advising}$$
+> **Recording** ➔ **Understanding** ➔ **Detecting** ➔ **Predicting** ➔ **Advising**
 
 ```
  ┌─────────────────┐       ┌─────────────────┐       ┌─────────────────┐       ┌─────────────────┐       ┌────────────────────────┐
@@ -117,19 +117,19 @@ $$\Large \textbf{Recording} \longrightarrow \textbf{Understanding} \longrightarr
 ### High-Level Data Flow
 ```mermaid
 flowchart TD
-    A[Student Input / CSV Upload] --> B[Transaction Engine]
-    B --> C[CategoryClassifier: Heuristics + TF-IDF/LR]
-    C --> D[(Transaction Database)]
-    D --> E[AnomalyDetector: Robust Z-Score + Isolation Forest]
-    D --> F[RecurringDetector: Merchant Normalization + Interval Clustering]
-    D --> G[Forecaster: WMA + Linear Trend Extrapolation]
-    E --> H[InsightEngine: Structured Analytical Facts]
+    A["Student Input / CSV Upload"] --> B["Transaction Engine"]
+    B --> C["Category Classifier (Heuristics + TF-IDF)"]
+    C --> D[("Transaction Database")]
+    D --> E["Anomaly Detector (Robust Z-Score + Isolation Forest)"]
+    D --> F["Recurring Detector (Merchant Normalization)"]
+    D --> G["Forecaster (WMA + Linear Trend)"]
+    E --> H["Insight Engine (Structured Analytical Facts)"]
     F --> H
     G --> H
-    G --> I[Budget Projection Engine]
-    H --> J[Student Dashboard UI]
+    G --> I["Budget Projection Engine"]
+    H --> J["Student Dashboard UI"]
     I --> J
-    J --> K[Ask FinStudent Grounded Q&A]
+    J --> K["Ask FinStudent Grounded QA"]
 ```
 
 ---
@@ -154,7 +154,7 @@ Rather than calling every large transaction "fraud", FinStudent AI assesses whet
 
 ### 3. Recurring Subscription Discovery
 * **Merchant Normalization**: Cleans payment descriptors using regex patterns:
-  $$\text{NETFLIX.COM} \quad \text{or} \quad \text{Netflix India} \longrightarrow \textbf{Netflix}$$
+  > `NETFLIX.COM` or `Netflix India` ➔ **Netflix**
 * **Cadence Clustering**: Groups transactions by normalized merchant and clusters dates into recurring cycles ($\approx 28-32$ days for monthly, $\approx 7$ days for weekly) with $\le 10\%$ amount variance.
 
 ### 4. Time-Series Forecaster & Budget Projection
