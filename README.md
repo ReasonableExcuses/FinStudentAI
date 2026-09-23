@@ -10,6 +10,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.4+-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.5+-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
+[![Firebase Hosting](https://img.shields.io/badge/Hosted%20On-Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://finstudentai.web.app)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Complete_MVP-10B981?style=for-the-badge)](#)
 
@@ -18,6 +19,11 @@
   A student-centric finance intelligence platform combining natural language transaction categorization, statistical anomaly detection, recurring subscription discovery, and time-series spending forecasting.
 </p>
 
+<p align="center">
+  🚀 <strong>Live Web App:</strong> <a href="https://finstudentai.web.app"><strong>https://finstudentai.web.app</strong></a>
+</p>
+
+[Live Demo](https://finstudentai.web.app) •
 [Quickstart](#-quickstart-guide) •
 [Architecture](#-system-architecture) •
 [AI/ML Pipeline](#-intelligent-aiml-pipeline) •
@@ -214,11 +220,19 @@ The database uses SQLAlchemy ORM, running on **SQLite** for local development an
 
 ## 🚀 Quickstart Guide
 
-### Prerequisites
+### Method 0: Live Cloud Demo (Instant / Zero Setup)
+The application is deployed live on **Firebase Hosting**:
+* 🔗 **Live URL**: [https://finstudentai.web.app](https://finstudentai.web.app)
+* ⚡ **1-Click Demo Login**: Click **"Try Live Demo"** on the landing page or log in with:
+  * **Email**: `alex@finstudent.ai`
+  * **Password**: `password123`
+* Complete offline-resilient demo state is bundled into the client build, allowing instant access to all 12 modules, interactive charts, and analytics without running any local servers!
+
+### Prerequisites (For Local Development)
 * **Python**: 3.11+ (Python 3.13 tested and verified)
 * **Node.js**: v18+ and `npm`
 
-### Method 1: 1-Click Launch (Windows)
+### Method 1: 1-Click Launch (Windows Local)
 Double-click:
 ```powershell
 .\run_demo.bat
